@@ -1,0 +1,11 @@
+{
+  "mysql": {
+    "host": "localhost",
+    "user": "root",
+    "password": "123456",
+    "database": "darksoulsstore"
+  },
+  "api": {
+    "port": "9191"
+  }
+}
