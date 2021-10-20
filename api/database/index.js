@@ -1,21 +1,22 @@
 const Sequelize = require('sequelize');
 const config = require('config');
+const log = require('debug')('api:main');
 
 const connection = new Sequelize(
-  config.get('mysql.database'),
-  config.get('mysql.user'),
-  config.get('mysql.password'),
+  config.get('development.database'),
+  config.get('development.username'),
+  config.get('development.password'),
   {
-    host: config.get('mysql.host'),
+    host: config.get('development.host'),
     dialect: 'mysql',
   },
 );
 
 try {
   connection.authenticate();
-  console.log('connection has been stablished successfully');
+  log('connection has been stablished successfully');
 } catch (error) {
-  console.log('Unable to connect to the database: ', error);
+  log('Unable to connect to the database: ', error);
 }
 
 module.exports = connection;
